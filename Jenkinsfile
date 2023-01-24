@@ -1,12 +1,10 @@
-#!groovy
 pipeline {
-	agent none
-  stages {
-    stage('Docker Build') {
-    	agent any
-      steps {
-      	sh 'docker build -t mysql:test .'
-      }
+    agent { dockerfile true }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'ls'
+            }
+        }
     }
-  }
 }
